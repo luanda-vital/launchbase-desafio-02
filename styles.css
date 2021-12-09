@@ -3,7 +3,7 @@
 :root {
   --color-black: #121214;
   --color-white: #fbfbfb;
-  --color-main: #8257E5;
+  --color-main: #8257e5;
 }
 
 * {
@@ -20,11 +20,16 @@ body {
 
 header {
   padding: 30px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.2);
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.3);
 }
 
 header .links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
   text-align: center;
 }
 
@@ -38,4 +43,77 @@ header .links {
 .links a:hover {
   color: var(--color-main);
   transition: color 400ms;
+}
+
+.about {
+  text-align: center;
+  padding: 40px 30px;
+}
+
+.about img {
+  border-radius: 50%;
+  border: 5px solid var(--color-white);
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.about h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.about p {
+  font-size: 16px;
+  line-height: 26px;
+  max-width: 500px;
+  margin: 20px auto 0;
+}
+
+.about h2 {
+  margin: 30px 0px 10px;
+  font-size: 17px;
+  font-weight: 500;
+  opacity: 0.96;
+}
+
+.about ul li {
+  display: inline;
+  white-space: nowrap;
+}
+
+.about ul li:after {
+  content: " \00b7 ";
+}
+
+.about ul li:last-child:after {
+  content: none;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+footer .social-media-button {
+  background: rgba(0, 0, 0, 0.15);
+  width: 20px;
+  height: 20px;
+  margin: 0 12px;
+  padding: 10px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  text-align: center;
+  color: var(--color-white);
+  font-size: 20px;
+}
+
+footer .social-media-button:hover {
+  background: var(--color-main);
+  transition: ease-in 400ms;
 }
