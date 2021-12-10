@@ -18,17 +18,38 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+/* HEADER */
+
 header {
-  padding: 30px;
-  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  height: 75px;
+  width: 100%;
+  z-index: 10;
+
+  background: #020202;
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.5);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.material-icons.md-30 { font-size: 30px; }
+
+header #btn-mobile {
+  display: none;
+  margin-left: 30px;
+}
+
+header #btn-mobile-style {
+  background-color: transparent;
+  color: var(--color-main);
+  cursor: pointer;
 }
 
 header .links-header {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
 
   text-align: center;
 }
@@ -46,7 +67,7 @@ header .links-header {
 }
 
 main {
-  padding: 40px 30px;
+  padding: 115px 30px 40px;
 }
 
 .about {
@@ -137,6 +158,7 @@ main .cards .card {
   border: 3px solid transparent;
   border-radius: 20px;
   cursor: pointer;
+  position: relative;
 }
 
 main .cards .card:hover {
@@ -149,7 +171,7 @@ main .cards .card img {
   border-radius: 20px 20px 0px 0px;
 }
 main .cards .card .info {
-  padding: 20px;
+  padding: 20px 20px 66px;
 }
 
 main .cards .card .info h1 {
@@ -172,6 +194,8 @@ main .cards .card .info .time-right {
 }
 
 main .cards .card .info .time {
+  position: absolute;
+  bottom: 20px;
   display: inline-flex;
   align-items: center;
 
@@ -204,6 +228,7 @@ main .cards .card .info .time p {
   position: fixed;
   top: 0;
   display: none;
+  z-index: 20;
 }
 
 .modal-overlay.active {
@@ -261,6 +286,67 @@ main .cards .card .info .time p {
 @media (max-width: 700px) {
   main .cards {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* RESPONSIVIDADE HEADER */
+
+@media (max-width: 480px) {
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  header #btn-mobile {
+    display: flex;
+  }
+
+  header #btn-mobile-style.btn-menu, 
+  #nav.active #btn-mobile-style.btn-close {
+    display: flex;
+  }
+
+  header #btn-mobile-style.btn-close,
+  #nav.active #btn-mobile-style.btn-menu {
+    display: none;
+  }
+
+  #nav .links-header {
+    display: none;
+  }
+
+  #nav.active .links-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    
+    width: 100%;
+    height: calc(100vh - 75px);
+    top: 75px;
+    right: 0;
+    z-index: 5;
+    position: fixed;
+
+    box-sizing: border-box;
+    padding: 16px;
+
+    background: #000000;
+    text-align: left;
+  }
+
+  #nav.active .links-header a {
+    color: var(--color-white);
+    font-size: 16px;
+    padding: 12px 0px;
+    margin: 0px;
+    border-bottom: 1px solid #29292E;
+    width: 100%;
+  }
+
+  #nav.active .links-header a:first-child {
+    border-top: 1px solid #29292E;
   }
 }
 
